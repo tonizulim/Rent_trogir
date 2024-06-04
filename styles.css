@@ -24,10 +24,20 @@
 }
 
 nav{
+    position: fixed;
+    width: 90%;
+    top: 0;
     display: flex;
     padding: 2% 6%;
+    background-color: rgba(4, 9, 30, 0.831);
     justify-content: space-between;
     align-items: center;
+    z-index: 1000;
+}
+
+.center_div{
+    position: absolute;
+    left: 35%;
 }
 
 nav img{
@@ -126,7 +136,7 @@ nav .fa{
         height: 100vh;
         width: 200px;
         top: 0;
-        right: -200px;
+        right: -600px;
         text-align: left;
         z-index: 2;
     }
@@ -151,6 +161,9 @@ nav .fa{
         font-size: 10px;
         padding: 10px 20px;
     }
+    .center_div{
+        left: 50%;
+    }
 }
 
 .why_us{
@@ -167,7 +180,7 @@ nav .fa{
 
 .why_us p{
     color: #777;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 22px;
     padding: 10px;
 }
@@ -258,6 +271,42 @@ h3{
 .layer:hover h3{
     bottom: 49%;
     opacity: 1;
+}
+
+.where_to_find_us{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    background-color: #fff3f3;
+    padding: 15px;
+}
+
+.where_to_find_us h1{
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.where_to_find_us i{
+    color: #f44336;
+    font-size: 28px;
+    margin-right: 30px;
+    margin: 10px;
+}
+
+.where_to_find_us h5{
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: 400;
+}
+
+.where_to_find_us p{
+    padding: 0;
+}
+
+.where_to_find_us .location{
+    padding: 5% 0 0 0;
 }
 
 .testimonials{
@@ -372,17 +421,23 @@ h3{
 .sub-header{
     height: 50vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(img/background.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(img/banner.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
     overflow: hidden;
     text-align: center;
     color: #fff;
-}
 
-.sub-header h1{
-    margin-top: 100px;
+    /* min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(img/banner.jpg);
+
+    background-position: center;
+    background-size: cover;
+    position: relative;
+
+    overflow: hidden; */
 }
 
 .about-us{
@@ -426,6 +481,8 @@ h3{
 }
 
 /* contact us */
+
+
 
 .location{
     width: 80%;
@@ -479,4 +536,19 @@ h3{
     margin-bottom: 17px;
     border: 1px solid #ccc;
     box-sizing: border-box;
+}
+
+
+/* scooters */
+.scooter_display{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5%;
+}
+
+.scooter_display h1{
+    font-size: 36px;
+    font-weight: 600;
 }
