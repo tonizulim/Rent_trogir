@@ -1,2 +1,2 @@
 # Rent a scooter website
-live site at rent-trogr.rent
+live site at https://rent-trogir.rent/
