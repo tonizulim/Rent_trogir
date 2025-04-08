@@ -22,12 +22,12 @@
 		<loc>https://rent-trogir.com/scooter125cc</loc>
 		<lastmod>2025-04-04</lastmod>
 		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
+		<priority>0.7</priority>
 	</url>
 	<url>
 		<loc>https://rent-trogir.com/scooter250cc</loc>
 		<lastmod>2025-04-04</lastmod>
 		<changefreq>monthly</changefreq>
-		<priority>0.8</priority>
+		<priority>0.6</priority>
 	</url>
 </urlset>
