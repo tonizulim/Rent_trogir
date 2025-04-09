@@ -233,6 +233,7 @@ h3{
     margin: auto;
     text-align: center;
     padding-top: 50px;
+    font-size: 30px;
 }
 
 .scooter-col{
@@ -367,7 +368,7 @@ h3{
     }  
 
     .layer{
-        background: rgba(226,0,0,0.7);
+        background: rgba(226, 0, 0, 0.411);
     }
     .layer h3{
         bottom: 49%;
@@ -418,6 +419,8 @@ h3{
     width: 100%;
     text-align: center;
     padding: 30px 0;
+    background-color: rgba(4, 9, 30, 0.831);
+    color: white;
 }
 
 .footer p{
@@ -602,3 +605,42 @@ h3{
     font-size: 36px;
     font-weight: 600;
 } 
+
+.step-by-step{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+    font-size: 30px;
+}
+
+.step-by-step h6{
+    font-size: 150px;
+    font-weight: 600;
+}
+
+.step-by-step p{
+    color: #777;
+    font-size: 20px;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.step-by-step h7{
+    color: #000000;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 22px;
+    padding: 10px;
+}
+
+.step-by-step-col{
+    flex-basis: 31%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    display: flex;
+}
