@@ -571,3 +571,34 @@ h3{
     font-size: 36px;
     font-weight: 600;
 } 
+
+/* blog */
+
+.blog_col{
+    flex-basis: 32%;
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.blog_col img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.blog_display{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    margin-top: 5%;
+}
+
+.blog_display h1{
+    font-size: 36px;
+    font-weight: 600;
+} 
