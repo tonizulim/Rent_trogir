@@ -880,3 +880,158 @@ footer {
   .section { padding: 60px 5%; }
   .trust-bar { gap: 20px; }
 }
+
+/* ===== BOOKING MODAL ===== */
+.booking-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+.booking-modal-overlay.active { display: flex; }
+
+.booking-modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 28px 28px;
+  width: 90%;
+  max-width: 380px;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+}
+
+.booking-modal h3 {
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+  color: var(--dark);
+}
+.booking-modal .modal-scooter-name {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+
+.booking-modal label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 5px;
+}
+
+.booking-modal .date-time-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.booking-modal .date-time-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.booking-modal input[type="date"],
+.booking-modal input[type="time"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.booking-modal input[type="date"]:focus,
+.booking-modal input[type="time"]:focus { border-color: var(--red); }
+
+.booking-modal .modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+.booking-modal .btn-wa {
+  flex: 1;
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background var(--transition);
+}
+.booking-modal .btn-wa:hover { background: #1ebe59; }
+
+.booking-modal .btn-cancel {
+  background: var(--light);
+  color: var(--dark);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.booking-modal .btn-cancel:hover { background: #e0e0e0; }
+
+.booking-modal .modal-close {
+  position: absolute;
+  top: 14px; right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: var(--gray);
+  line-height: 1;
+}
+
+.booking-modal .modal-error {
+  font-size: 0.8rem;
+  color: var(--red);
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: none;
+}
+.booking-modal .modal-error.visible { display: block; }
+
+/* ===== FLOATING WHATSAPP BUTTON ===== */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1500;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.wa-float:hover {
+  background: #1ebe59;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.5);
+}
+.wa-float i { font-size: 1.2rem; }
+
+@media (max-width: 480px) {
+  .wa-float span { display: none; }
+  .wa-float { padding: 16px; border-radius: 50%; }
+}

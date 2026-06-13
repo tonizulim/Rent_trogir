@@ -89,7 +89,7 @@
           <div class="price-row"><span>Day</span><span class="price-val">€48 / day</span></div>
           <div class="price-row"><span>Week</span><span class="price-val">€44 / day</span></div>
         </div>
-        <a href="tel:+38598780021" class="btn btn-primary"><i class="fa fa-phone"></i> Rent Now</a>
+        <button class="btn btn-primary book-btn" data-scooter="Yamaha NMAX 125"><i class="fa fa-calendar"></i> Book Now</button>
       </div>
     </div>
 
@@ -110,7 +110,7 @@
           <div class="price-row"><span>Day</span><span class="price-val">€48 / day</span></div>
           <div class="price-row"><span>Week</span><span class="price-val">€44 / day</span></div>
         </div>
-        <a href="tel:+38598780021" class="btn btn-primary"><i class="fa fa-phone"></i> Rent Now</a>
+        <button class="btn btn-primary book-btn" data-scooter="Yamaha XMAX 125"><i class="fa fa-calendar"></i> Book Now</button>
       </div>
     </div>
 
@@ -131,7 +131,7 @@
           <div class="price-row"><span>Day</span><span class="price-val">€48 / day</span></div>
           <div class="price-row"><span>Week</span><span class="price-val">€44 / day</span></div>
         </div>
-        <a href="tel:+38598780021" class="btn btn-primary"><i class="fa fa-phone"></i> Rent Now</a>
+        <button class="btn btn-primary book-btn" data-scooter="Piaggio Liberty 125"><i class="fa fa-calendar"></i> Book Now</button>
       </div>
     </div>
 
@@ -152,7 +152,7 @@
           <div class="price-row"><span>Day</span><span class="price-val">€48 / day</span></div>
           <div class="price-row"><span>Week</span><span class="price-val">€44 / day</span></div>
         </div>
-        <a href="tel:+38598780021" class="btn btn-primary"><i class="fa fa-phone"></i> Rent Now</a>
+        <button class="btn btn-primary book-btn" data-scooter="Derbi Boulevard 125"><i class="fa fa-calendar"></i> Book Now</button>
       </div>
     </div>
 
@@ -173,7 +173,7 @@
           <div class="price-row"><span>Day</span><span class="price-val">€48 / day</span></div>
           <div class="price-row"><span>Week</span><span class="price-val">€44 / day</span></div>
         </div>
-        <a href="tel:+38598780021" class="btn btn-primary"><i class="fa fa-phone"></i> Rent Now</a>
+        <button class="btn btn-primary book-btn" data-scooter="Piaggio Medley 125"><i class="fa fa-calendar"></i> Book Now</button>
       </div>
     </div>
   </div>
@@ -181,8 +181,32 @@
 
 <div class="cta-banner">
   <h2>Ready to Ride?</h2>
-  <p>Call or WhatsApp us to check availability and confirm your booking.</p>
-  <a href="tel:+38598780021" class="btn btn-primary" style="font-size:1.05rem; padding:14px 32px;"><i class="fa fa-phone"></i> +385 98 780 021</a>
+  <p>Pick your dates and send us a quick WhatsApp — we'll confirm availability instantly.</p>
+  <button class="btn btn-primary book-btn" data-scooter="125cc scooter" style="font-size:1.05rem; padding:14px 32px;"><i class="fa fa-calendar"></i> Book Now</button>
+</div>
+
+<!-- Booking Modal -->
+<div class="booking-modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="booking-modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <h3 id="modalTitle">Check Availability</h3>
+    <p class="modal-scooter-name" id="modalScooterName"></p>
+    <label for="dateFrom">Pick-up date &amp; time</label>
+    <div class="date-time-row">
+      <input type="date" id="dateFrom" />
+      <input type="time" id="timeFrom" value="09:00" />
+    </div>
+    <label for="dateTo">Return date &amp; time</label>
+    <div class="date-time-row">
+      <input type="date" id="dateTo" />
+      <input type="time" id="timeTo" value="09:00" />
+    </div>
+    <p class="modal-error" id="modalError">Please select valid dates.</p>
+    <div class="modal-actions">
+      <button class="btn-wa" id="modalSend"><i class="fa fa-whatsapp"></i> Send on WhatsApp</button>
+      <button class="btn-cancel" id="modalCancel">Cancel</button>
+    </div>
+  </div>
 </div>
 
 <div class="seo-block">
@@ -232,6 +256,71 @@
   hamburger.addEventListener('click', () => {
     const open = navlinks.classList.toggle('open');
     hamburger.setAttribute('aria-expanded', open);
+  });
+
+  // Booking modal
+  const modal = document.getElementById('bookingModal');
+  const modalScooterName = document.getElementById('modalScooterName');
+  const dateFrom = document.getElementById('dateFrom');
+  const dateTo = document.getElementById('dateTo');
+  const timeFrom = document.getElementById('timeFrom');
+  const timeTo = document.getElementById('timeTo');
+  const modalError = document.getElementById('modalError');
+  let currentScooter = '';
+
+  const today = new Date().toISOString().split('T')[0];
+
+  function openModal(scooterName) {
+    currentScooter = scooterName;
+    modalScooterName.textContent = scooterName;
+    dateFrom.value = '';
+    dateTo.value = '';
+    timeFrom.value = '09:00';
+    timeTo.value = '09:00';
+    dateFrom.min = today;
+    dateTo.min = today;
+    modalError.classList.remove('visible');
+    modal.classList.add('active');
+    dateFrom.focus();
+  }
+
+  function closeModal() { modal.classList.remove('active'); }
+
+  document.querySelectorAll('.book-btn').forEach(btn => {
+    btn.addEventListener('click', () => openModal(btn.dataset.scooter));
+  });
+
+  dateFrom.addEventListener('change', () => {
+    dateTo.min = dateFrom.value || today;
+    if (dateTo.value && dateTo.value < dateFrom.value) dateTo.value = '';
+  });
+
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('modalCancel').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+  function formatDate(val) {
+    const [y, m, d] = val.split('-');
+    return d + '.' + m + '.';
+  }
+
+  document.getElementById('modalSend').addEventListener('click', () => {
+    if (!dateFrom.value || !dateTo.value) {
+      modalError.textContent = 'Please select both dates.';
+      modalError.classList.add('visible');
+      return;
+    }
+    if (dateTo.value < dateFrom.value) {
+      modalError.textContent = 'Return date must be after pick-up date.';
+      modalError.classList.add('visible');
+      return;
+    }
+    modalError.classList.remove('visible');
+    const from = formatDate(dateFrom.value) + ' at ' + timeFrom.value;
+    const to = formatDate(dateTo.value) + ' at ' + timeTo.value;
+    const msg = encodeURIComponent('Hi, is ' + currentScooter + ' available from ' + from + ' until ' + to + '?');
+    window.open('https://wa.me/38598780021?text=' + msg, '_blank');
+    closeModal();
   });
 </script>
 </body>
