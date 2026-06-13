@@ -1011,7 +1011,7 @@ footer {
   right: 24px;
   z-index: 1500;
   background: #25D366;
-  color: #fff;
+  color: #fff !important;
   border-radius: 50px;
   padding: 14px 20px;
   display: flex;
